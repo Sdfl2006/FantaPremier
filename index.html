@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FantaPremier - Gestión de Jugadores</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <img src="england-premier-league-logo-on-transparent-background-free-vector.png" alt="Premier League Logo" class="pl-logo">
+            <h1>FantaPremier - Estudio de Jugadores</h1>
+        </div>
+    </header>
+
+    <main>
+        <div class="tabs">
+            <button class="tab-button active" data-tab="porterias">Porterias</button>
+            <button class="tab-button" data-tab="defensores">Defensores</button>
+            <button class="tab-button" data-tab="mediocampistas">Mediocampistas</button>
+            <button class="tab-button" data-tab="delanteros">Delanteros</button>
+        </div>
+
+        <div class="tab-content">
+            <div id="porterias" class="tab-pane active">
+                <h2>Porterías</h2>
+                <table class="players-table">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Equipo</th>
+                            <th>Vallas Invictas</th>
+                            <th>Promedio FotMob</th>
+                            <th>Posesión</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="porterias-tbody">
+                        <!-- Player rows will be added here by JavaScript -->
+                    </tbody>
+                </table>
+                <button class="add-player-btn" data-position="porterias">Agregar Portero</button>
+            </div>
+
+            <div id="defensores" class="tab-pane">
+                <h2>Defensores</h2>
+                <table class="players-table">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Posición</th>
+                            <th>Equipo</th>
+                            <th>Goles</th>
+                            <th>Asistencias</th>
+                            <th>Promedio FotMob</th>
+                            <th>Posesión</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="defensores-tbody">
+                        <!-- Player rows will be added here by JavaScript -->
+                    </tbody>
+                </table>
+                <button class="add-player-btn" data-position="defensores">Agregar Defensor</button>
+            </div>
+
+            <div id="mediocampistas" class="tab-pane">
+                <h2>Mediocampistas</h2>
+                <table class="players-table">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Posición</th>
+                            <th>Equipo</th>
+                            <th>Goles</th>
+                            <th>Asistencias</th>
+                            <th>Promedio FotMob</th>
+                            <th>Posesión</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="mediocampistas-tbody">
+                        <!-- Player rows will be added here by JavaScript -->
+                    </tbody>
+                </table>
+                <button class="add-player-btn" data-position="mediocampistas">Agregar Mediocampista</button>
+            </div>
+
+            <div id="delanteros" class="tab-pane">
+                <h2>Delanteros</h2>
+                <table class="players-table">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Posición</th>
+                            <th>Equipo</th>
+                            <th>Goles</th>
+                            <th>Asistencias</th>
+                            <th>Promedio FotMob</th>
+                            <th>Posesión</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="delanteros-tbody">
+                        <!-- Player rows will be added here by JavaScript -->
+                    </tbody>
+                </table>
+                <button class="add-player-btn" data-position="delanteros">Agregar Delantero</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal for adding/editing players -->
+    <div id="player-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modal-title">Agregar Jugador</h2>
+            <form id="player-form">
+                <input type="hidden" id="player-id">
+                <div class="form-group">
+                    <label for="player-name">Nombre:</label>
+                    <input type="text" id="player-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="player-position-detail">Posición Específica:</label>
+                    <select id="player-position-detail">
+                        <!-- Options will be populated by JavaScript based on player position -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="player-team">Equipo:</label>
+                    <select id="player-team">
+                        <option value="">Seleccionar Equipo</option>
+                        <option value="Arsenal">Arsenal</option>
+                        <option value="Aston Villa">Aston Villa</option>
+                        <option value="Bournemouth">Bournemouth</option>
+                        <option value="Brentford">Brentford</option>
+                        <option value="Brighton">Brighton</option>
+                        <option value="Burnley">Burnley</option>
+                        <option value="Chelsea">Chelsea</option>
+                        <option value="Crystal Palace">Crystal Palace</option>
+                        <option value="Everton">Everton</option>
+                        <option value="Fulham">Fulham</option>
+                        <option value="Liverpool">Liverpool</option>
+                        <option value="Luton Town">Luton Town</option>
+                        <option value="Manchester City">Manchester City</option>
+                        <option value="Manchester United">Manchester United</option>
+                        <option value="Newcastle">Newcastle</option>
+                        <option value="Nottingham Forest">Nottingham Forest</option>
+                        <option value="Sheffield United">Sheffield United</option>
+                        <option value="Tottenham">Tottenham</option>
+                        <option value="West Ham">West Ham</option>
+                        <option value="Wolves">Wolves</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="player-goals">Goles:</label>
+                    <input type="number" id="player-goals" min="0" value="0">
+                </div>
+                <div class="form-group">
+                    <label for="player-assists">Asistencias:</label>
+                    <input type="number" id="player-assists" min="0" value="0">
+                </div>
+                <div class="form-group" id="clean-sheets-group">
+                    <label for="player-clean-sheets">Vallas Invictas:</label>
+                    <input type="number" id="player-clean-sheets" min="0" value="0">
+                </div>
+                <div class="form-group">
+                    <label for="player-rating">Promedio FotMob:</label>
+                    <input type="number" id="player-rating" min="0" step="0.1" value="0">
+                </div>
+                <div class="form-group">
+                    <label for="player-possession">¿En posesión?</label>
+                    <input type="checkbox" id="player-possession">
+                </div>
+                <div class="form-group">
+                    <label for="player-position">Posición General:</label>
+                    <select id="player-position">
+                        <option value="porterias">Portero</option>
+                        <option value="defensores">Defensor</option>
+                        <option value="mediocampistas">Mediocampista</option>
+                        <option value="delanteros">Delantero</option>
+                    </select>
+                </div>
+                <button type="submit">Guardar</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
