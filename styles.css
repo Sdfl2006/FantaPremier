@@ -277,6 +277,25 @@ main {
     overflow-y: auto; /* Enable vertical scrolling within modal */
 }
 
+.mi-equipo-btn {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: linear-gradient(135deg, #2e093d 0%, #012d61 100%);
+    color: #fff;
+    padding: 16px 28px;
+    border-radius: 50px;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    z-index: 1000;
+    transition: background 0.2s;
+}
+.mi-equipo-btn:hover {
+    transform: translateY(-2px);
+}
+
 .close {
     position: absolute;
     top: 1rem;
