@@ -399,6 +399,10 @@ main {
     
     .players-table {
         font-size: 0.85rem;
+        min-width: 480px;
+    }
+    .tab-content, .form-group  {
+        margin-bottom: 1rem;
     }
     
     .players-table th,
@@ -432,4 +436,26 @@ main {
         margin: 10% auto;
         padding: 1.5rem;
     }
+
+        /* Responsive tables */
+    .tab-content, .form-group  {
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    .players-table {
+        min-width: 600px;
+        width: 100%;
+    }
+
+    .mi-equipo-btn {
+        width: 30%;
+        margin: 0 auto;
+        text-align: center;
+        font-size: 10px;
+        padding: 12px 20px;
+        
+    }
 }
+
+
