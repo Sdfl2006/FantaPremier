@@ -35,7 +35,7 @@ header {
 
 .Liga-logo {
     height: 50px;
-    width:max-content;
+    width:auto;
     margin-left: 1rem;
     border-radius: 10px;
     background: #932622;
