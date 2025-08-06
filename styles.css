@@ -306,6 +306,26 @@ main {
     transform: translateY(-2px);
 }
 
+.jugadores-total-btn {
+    position: fixed;
+    bottom: 24px;
+    left: 24px;
+    background: linear-gradient(135deg, #2e093d 0%, #012d61 100%);
+    color: #fff;
+    padding: 16px 28px;
+    border-radius: 50px;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    z-index: 1000;
+    transition: background 0.2s;
+    border: none;
+}
+.jugadores-total-btn:hover {
+    transform: translateY(-2px);
+}
+
 #mi-jugador-form button[type="submit"] {
     background: linear-gradient(135deg, #3D195B 0%, #012D61 100%);
     color: white;
@@ -462,7 +482,16 @@ main {
         width: 30%;
         margin: 0 auto;
         text-align: center;
-        font-size: 10px;
+        font-size: 7px;
+        padding: 12px 20px;
+        
+    }
+
+    .jugadores-total-btn {
+        width: 30%;
+        margin: auto;
+        text-align: center;
+        font-size: 40%;
         padding: 12px 20px;
         
     }
