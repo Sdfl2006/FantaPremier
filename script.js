@@ -483,3 +483,47 @@ function loadPlayers() {
         savePlayers();
     }
 }
+
+let sortState = {
+    porterias: { column: null, asc: true },
+    defensores: { column: null, asc: true },
+    mediocampistas: { column: null, asc: true },
+    delanteros: { column: null, asc: true }
+};
+
+function setupSorting() {
+    document.querySelectorAll('.players-table th.sortable').forEach(th => {
+        th.style.cursor = 'pointer';
+        th.addEventListener('click', function() {
+            const position = th.closest('.tab-pane').id;
+            const column = th.getAttribute('data-sort');
+            // Toggle asc/desc if clicking same column
+            if (sortState[position].column === column) {
+                sortState[position].asc = !sortState[position].asc;
+            } else {
+                sortState[position].column = column;
+                sortState[position].asc = false; // default: descending
+            }
+            sortAndRender(position, column, sortState[position].asc);
+        });
+    });
+}
+
+function sortAndRender(position, column, asc) {
+    players[position].sort((a, b) => {
+        let valA = a[column] || 0;
+        let valB = b[column] || 0;
+        // Si es string, comparar como string
+        if (typeof valA === 'string') valA = valA.toLowerCase();
+        if (typeof valB === 'string') valB = valB.toLowerCase();
+        if (valA < valB) return asc ? -1 : 1;
+        if (valA > valB) return asc ? 1 : -1;
+        return 0;
+    });
+    renderTable(position);
+}
+
+// Llama a setupSorting cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', function() {
+    setupSorting();
+});
