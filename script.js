@@ -469,19 +469,24 @@ function loadPlayers() {
     const savedPlayers = localStorage.getItem('fantaPremierPlayers');
     if (savedPlayers) {
         players = JSON.parse(savedPlayers);
-        // Ensure all players have the new fields
+        // Asegura que todos los jugadores tengan los campos nuevos
         Object.keys(players).forEach(position => {
             players[position].forEach(player => {
                 if (player.selected === undefined) player.selected = false;
                 if (player.possession === undefined) player.possession = false;
-                // Ensure goalkeepers have cleanSheets field
+                // Si es portero, asegura cleanSheets
                 if (position === 'porterias' && player.cleanSheets === undefined) {
                     player.cleanSheets = 0;
+                }
+                // Si es defensor, mediocampista o delantero, asegura goals y assists
+                if (position !== 'porterias') {
+                    if (player.goals === undefined) player.goals = 0;
+                    if (player.assists === undefined) player.assists = 0;
                 }
             });
         });
     } else {
-        // Initialize with some sample data
+        // Inicializa con datos de ejemplo
         players = initializeSampleData();
         savePlayers();
     }
