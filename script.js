@@ -190,6 +190,7 @@ function renderTable(position) {
         if (position === 'porterias') {
             // Special rendering for goalkeepers
             row.innerHTML = `
+                <td>${index + 1}</td>
                 <td>${player.name}</td>
                 <td>${player.team || ''}</td>
                 <td>${player.cleanSheets || ''}</td>
@@ -206,6 +207,7 @@ function renderTable(position) {
         } else {
             // Regular rendering for other positions
             row.innerHTML = `
+                <td>${index + 1}</td>
                 <td>${player.name}</td>
                 <td>${player.positionDetail || ''}</td>
                 <td>${player.team || ''}</td>

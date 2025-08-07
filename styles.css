@@ -416,6 +416,16 @@ main {
     display: block;
 }
 
+.players-table td:first-child,
+.players-table th:first-child {
+    text-align: center;
+    width: 40px;
+    background: linear-gradient(135deg, #3D195B 0%, #012D61 100%);
+    color: white;
+    font-weight: bold;
+}
+
+
 /* Responsive improvements */
 @media (max-width: 768px) {
     .tabs {
