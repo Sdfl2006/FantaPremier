@@ -139,6 +139,11 @@ main {
     text-align: center;
 }
 
+.players-table th:nth-child(9),
+.players-table td:nth-child(9) {
+    text-align: center;
+}
+
 /* Special styling for porterias table */
 #porterias .players-table th:nth-child(4),
 #porterias .players-table td:nth-child(4) {
