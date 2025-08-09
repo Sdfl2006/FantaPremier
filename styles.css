@@ -425,6 +425,18 @@ main {
     font-weight: bold;
 }
 
+/* Colores para tipos de pick */
+.buen-pick td {
+    background-color: #d4edda !important; /* verde claro */
+}
+.pick-normal td {
+    background-color: #828d9a7f !important; /* gris claro */
+}
+.ultimo-pick td {
+    background-color: #f8d7da !important; /* rojo claro */
+}
+
+
 
 /* Responsive improvements */
 @media (max-width: 768px) {

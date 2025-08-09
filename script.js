@@ -186,7 +186,10 @@ function renderTable(position) {
         if (player.selected) {
             row.classList.add('selected');
         }
-        
+        if (player.pickType) {
+            row.classList.add(player.pickType);
+        }
+
         if (position === 'porterias') {
             // Special rendering for goalkeepers
             row.innerHTML = `
@@ -361,6 +364,8 @@ function savePlayer() {
     const positionDetail = document.getElementById('player-position-detail').value;
     const team = document.getElementById('player-team').value;
     const possession = document.getElementById('player-possession').checked;
+    const pickType = document.getElementById('player-pick-type').value;
+
     
     // Get existing player data if editing
     let selected = false;
@@ -380,7 +385,8 @@ function savePlayer() {
             position: position,
             team: team,
             selected: selected,
-            possession: possession
+            possession: possession,
+            pickType: pickType
         };
     } else {
         // Regular structure for other positions
@@ -394,7 +400,8 @@ function savePlayer() {
             positionDetail: positionDetail,
             team: team,
             selected: selected,
-            possession: possession
+            possession: possession,
+            pickType: pickType
         };
     }
     
