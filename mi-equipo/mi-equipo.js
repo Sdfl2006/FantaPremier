@@ -1,4 +1,4 @@
-const MI_EQUIPO_KEY = 'miEquipoData';
+const MI_EQUIPO_KEY = 'miEquipoPremier';
 
 function getInitialMiEquipo() {
     return {
